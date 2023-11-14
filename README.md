@@ -1,6 +1,9 @@
 ## Introdução ao Projeto:
 Este projeto foi criado com o intuito de adicionar e gerenciar sua lista de contatos, armazenando seus contatos de forma segura e eficiente.
 
+## Layout da Aplicação:
+https://www.canva.com/design/DAF0DV2LeFU/oM00lvRFr-OwT2721VZ6KQ/edit?utm_content=DAF0DV2LeFU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
+
 ## Regras de Negócio:
 
 Página inicial: 

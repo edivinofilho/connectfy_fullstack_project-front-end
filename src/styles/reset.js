@@ -9,8 +9,8 @@ export const ResetStyle = createGlobalStyle`
 
     button {
         cursor: pointer;
-        background: transparent;
-        border: none;
+        /* background: transparent; */
+        /* border: none; */
     }
 
     a {
@@ -24,7 +24,7 @@ export const ResetStyle = createGlobalStyle`
 
     input {
         border-radius: 0;
-        border: none;
+        /* border: none; */
         background: none;
     }
 

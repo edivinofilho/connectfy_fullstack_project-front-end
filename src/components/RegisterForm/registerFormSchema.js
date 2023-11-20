@@ -13,7 +13,7 @@ export const registerFormSchema = z.object({
 
     confirm: z.string().nonempty('Confirm your password'),
 
-    telephone: z.string().nonempty('Telephone is a must!')
+    telephone: z.string().nonempty("Don't forget the Telephone number!")
 }).refine(({password, confirm}) => password === confirm, {
     message: 'Confirming is caring. Match the passwords, please!',
     path: ['confirm']

@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import { Slide, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const UserContext = createContext({});
 
@@ -8,6 +10,7 @@ export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [userApiData, setUserApiData] = useState(null)
   const [loading, setLoading ] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const currentPath = window.location.pathname; 
   
@@ -63,15 +66,24 @@ export const UserProvider = ({ children }) => {
       localStorage.setItem("@TOKEN", data.token.token)
       localStorage.setItem("@USERID", data.token.userData.id)
       setUser(data.token.userData)
-      // setUserApiData(data)
-      // console.log(data)
 
       setUserApiData(data)
-      // console.log(user)
+
+      toast.success('Cool! Logging you in', {
+        transition: Slide,
+        autoClose: 2000
+      })  
+    
       navigate("/home")
 
     } catch (error) {
-      console.log(error);
+      console.log(error)
+      toast.error('Ooops, something went wrong!', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
+      
+
       localStorage.removeItem("@TOKEN")
       localStorage.removeItem("@USERID")
       setUser(null)
@@ -92,15 +104,49 @@ export const UserProvider = ({ children }) => {
 
   const getUser = async () => {
     try {
-      console.log(user)
+      // console.log(user)
       navigate("/user")
     } catch (error) {
       console.log(error)
     }
   }
 
+  const updateUser = async (userId, formData) => {
+    setIsModalOpen(true)
+    try {
+      const token = localStorage.getItem("@TOKEN");
+      const { data } = await api.patch(`/users/${userId}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setUser(data)
+      
+      setIsModalOpen(true);
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteUser = async (userId) => {
+    try {
+      const token = localStorage.getItem("@TOKEN");
+      const { data } = await api.delete(`/users/${userId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <UserContext.Provider value={{ user, setUser, userApiData, setUserApiData, userRegister, userLogin, userLogout, getUser, setLoading, loading }}>
+    <UserContext.Provider value={{ user, setUser, userApiData, setUserApiData, userRegister, userLogin, userLogout, getUser, deleteUser, updateUser, setLoading, loading }}>
       {children}
     </UserContext.Provider>
   );

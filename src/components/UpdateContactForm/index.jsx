@@ -19,7 +19,6 @@ export const UpdateContactForm = ({ contact, setIsUpdating }) => {
   }, [contact, reset, closeModal]);
 
   const submit = (formData) => {
-    console.log(formData);
     updateContact(contact.id, formData);
     reset();
     setIsUpdating(false)

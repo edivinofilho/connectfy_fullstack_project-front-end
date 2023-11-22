@@ -10,7 +10,6 @@ export const AddContactForm = (setContactList) => {
     const { register, handleSubmit, formState: {errors}, reset } = useForm()
 
     const submit = (formData) => {
-        console.log(formData)
         createContact(formData)
         reset()
     }

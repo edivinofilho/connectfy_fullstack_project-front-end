@@ -8,7 +8,7 @@ import { Input } from "../Input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormSchema } from "./loginFormSchema";
 
-export const LoginForm = () => {
+export const LoginForm = ({ onerror }) => {
   // const [showPassword, setShowPassword] = useState(false)
 
   const {
@@ -24,8 +24,12 @@ export const LoginForm = () => {
   const { userLogin } = useContext(UserContext);
 
   const submit = (formData) => {
-    userLogin(formData);
-    reset()
+    try {
+      userLogin(formData);
+      reset();
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return (

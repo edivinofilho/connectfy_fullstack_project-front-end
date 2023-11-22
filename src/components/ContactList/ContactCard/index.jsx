@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
 
 export const ContactCard = ({contact}) => {
-    console.log(contact)
     return (
         <li>
             <Link to={`/home/contact/${contact.id}`}>

@@ -73,11 +73,11 @@ export const ContactProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      console.log(isModalOpen)
+      
       setContactList((contactList) => contactList.map(contact => (contact.id === contactId ? data : contact)));
 
       setIsModalOpen(true);
-      console.log(isModalOpen)
+      
       
     } catch (error) {
       console.log(error);

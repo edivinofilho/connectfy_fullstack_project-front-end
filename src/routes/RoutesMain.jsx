@@ -30,9 +30,9 @@ export const RoutesMain = () => {
         <Route
           path="/user"
           element={
-            <UserProvider>
-              <UserPage />{" "}
-            </UserProvider>
+            <ContactProvider>
+              <UserPage />
+            </ContactProvider>
           }
         />
         <Route

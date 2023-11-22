@@ -1,43 +1,36 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
-import { AddContactModal } from "../../components/AddContactModal";
+import { ContactModal } from "../../components/ContactModal";
 import { AddContactForm } from "../../components/AddContactForm";
-// import { ContactList } from '../../components/ContactList'
 
 import { UserContext } from "../../providers/UserContext";
+import { ContactContext } from "../../providers/ContactContext";
+import { ContactList } from "../../components/ContactList";
 
-export const HomePage = ({ contactList, setContactList }) => {
-  const { user, userLogout } = useContext(UserContext);
-
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+export const HomePage = ({ setContactList }) => {
+  const { contactList, openModal, closeModal, isModalOpen } = useContext(ContactContext)
+  const { user, userLogout, getUser } = useContext(UserContext);
 
   return (
     <main>
-      <h1>Home Page</h1>
+      <header>
+        <h1>Home Page</h1>
 
-      <h2>{user}</h2>
-      <button onClick={openModal}>Add Contact</button>
-      <button onClick={() => userLogout()}>Logout</button>
+        <h2>{user.name}</h2>
+        <button onClick={() => getUser()}>Edit User</button>
+        <button onClick={openModal}>Add Contact</button>
+        <button onClick={() => userLogout()}>Logout</button>
+      </header>
 
-      <AddContactModal isOpen={isModalOpen} closeModal={closeModal}>
+      <ContactModal isOpen={isModalOpen} closeModal={closeModal}>
         <h2>Contact Form</h2>
         <AddContactForm setContactList={setContactList} />
-      </AddContactModal>
+      </ContactModal>
 
-      {/* <ContactList contactList={contactList} /> */}
 
-      <p>
-        <Link to="/home/contact">Albert Whintorp</Link>
-      </p>
+      <ContactList contactList={contactList} />
+
     </main>
   );
 };

@@ -25,7 +25,7 @@ export const LoginForm = () => {
 
   const submit = (formData) => {
     userLogin(formData);
-    // reset()
+    reset()
   };
 
   return (

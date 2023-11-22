@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export const AddContactModal = ({ isOpen, closeModal, children }) => {
+export const ContactModal = ({ isOpen, closeModal, children }) => {
   return (
     <div
       style={{

@@ -11,6 +11,7 @@ export const RegisterForm = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm({
     resolver: zodResolver(registerFormSchema),
   });
@@ -19,7 +20,7 @@ export const RegisterForm = () => {
 
   const submit = (formData) => {
     userRegister(formData);
-    console.log(formData);
+    reset()
   };
 
   return (

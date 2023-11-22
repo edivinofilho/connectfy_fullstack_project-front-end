@@ -6,6 +6,7 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userApiData, setUserApiData] = useState(null)
   const [loading, setLoading ] = useState(false)
 
   const currentPath = window.location.pathname; 
@@ -23,10 +24,14 @@ export const UserProvider = ({ children }) => {
           },
         })
 
-        setUser(data.name)
+        setUser(data)
         navigate(currentPath)
       } catch (error) {
         console.log(error)
+        localStorage.removeItem("@TOKEN")
+        localStorage.removeItem("@USERID")
+        setUser(null)
+
       } finally {
         setLoading(false)
       }
@@ -44,7 +49,6 @@ export const UserProvider = ({ children }) => {
       await api.post("/users", formData);
       console.log("Cadastro efetuado com sucesso!");
       navigate("/");
-
       //Adicionar Toatfy Success
     } catch (error) {
       console.log(error);
@@ -58,12 +62,20 @@ export const UserProvider = ({ children }) => {
       const { data } = await api.post("/login", formData);
       localStorage.setItem("@TOKEN", data.token.token)
       localStorage.setItem("@USERID", data.token.userData.id)
-      setUser(data.token.userData.name)
+      setUser(data.token.userData)
+      // setUserApiData(data)
+      // console.log(data)
 
+      setUserApiData(data)
+      // console.log(user)
       navigate("/home")
 
     } catch (error) {
       console.log(error);
+      localStorage.removeItem("@TOKEN")
+      localStorage.removeItem("@USERID")
+      setUser(null)
+      setUserApiData(null)
     }
   };
 
@@ -71,14 +83,24 @@ export const UserProvider = ({ children }) => {
         localStorage.removeItem("@TOKEN")
         localStorage.removeItem("@USERID")
         setUser(null)
-  
+        setUserApiData(null)
+    
         navigate("/")
 
         // set toast of loggin out
   }
 
+  const getUser = async () => {
+    try {
+      console.log(user)
+      navigate("/user")
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
-    <UserContext.Provider value={{ user, userRegister, userLogin, userLogout, setLoading, loading }}>
+    <UserContext.Provider value={{ user, setUser, userApiData, setUserApiData, userRegister, userLogin, userLogout, getUser, setLoading, loading }}>
       {children}
     </UserContext.Provider>
   );

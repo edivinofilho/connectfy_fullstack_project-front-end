@@ -1,28 +1,17 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { ContactContext } from '../../providers/ContactContext'
 
 import { Input } from "../Input"
 
-import { zodResolver } from '@hookform/resolvers/zod'
-import { addContactFormSchema } from './addContactFormSchema'
-import { ContactList } from '../ContactList'
 
 export const AddContactForm = (setContactList) => {
+    const { createContact } = useContext(ContactContext);
     const { register, handleSubmit, formState: {errors}, reset } = useForm()
-
-    const createContact = async (formData) => {
-        try {
-            const { data } = await api.post('/contacts', formData)
-
-            setContactList((setContactList) => [...ContactList, data])
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
     const submit = (formData) => {
         console.log(formData)
-        // await createContact(formData)
+        createContact(formData)
         reset()
     }
 

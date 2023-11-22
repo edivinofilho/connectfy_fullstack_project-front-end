@@ -6,23 +6,11 @@ import { ContactPage } from "../pages/ContactPage";
 import { useEffect, useState } from "react";
 import { ProtectedRoutes } from "../components/ProtectedRoutes";
 import { PublicRoutes } from "../components/PublicRoutes";
+import { ContactProvider } from "../providers/ContactContext";
+import { UserPage } from "../pages/UserPage";
+import { UserProvider } from "../providers/UserContext";
 
 export const RoutesMain = () => {
-  // const [contactList, setContactList] = useState([])
-
-  // useEffect(() => {
-  //     const loadContacts = async () => {
-  //         try {
-  //             const { data } = await api.get('/contacts')
-  //             setContactList(data)
-  //             console.log('contatos listados')
-  //         } catch (error) {
-  //             console.log(error)
-  //         }
-  //     }
-  //     loadContacts()
-  // }, [])
-
   return (
     <Routes>
       <Route element={<PublicRoutes />}>
@@ -31,8 +19,30 @@ export const RoutesMain = () => {
       </Route>
 
       <Route element={<ProtectedRoutes />}>
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/home/contact" element={<ContactPage />} />
+        <Route
+          path="/home"
+          element={
+            <ContactProvider>
+              <HomePage />{" "}
+            </ContactProvider>
+          }
+        />
+        <Route
+          path="/user"
+          element={
+            <UserProvider>
+              <UserPage />{" "}
+            </UserProvider>
+          }
+        />
+        <Route
+          path="/home/contact/:id"
+          element={
+            <ContactProvider>
+              <ContactPage />
+            </ContactProvider>
+          }
+        />
       </Route>
     </Routes>
   );

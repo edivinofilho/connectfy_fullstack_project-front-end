@@ -2,100 +2,108 @@
 Este projeto foi criado com o intuito de criar e gerenciar sua lista de contatos, armazenando seus contatos de forma segura e eficiente.
 
 ## Passos para clonar e executar este projeto:
-Passo 1: Baixar o Código Fonte
+### Passo 1: Baixar o Código Fonte
 
-Clone o Repositório:
+*Clone o Repositório:*
 
 No canto superior direito do repositório, clique no botão "Code".
 Copie o link fornecido.
 
-Abra o Terminal:
+*Abra o Terminal:*
 Abra o terminal ou prompt de comando no seu computador.
 
-Navegue até o Diretório de Destino:
+*Navegue até o Diretório de Destino:*
 Use o comando cd para navegar até o diretório onde você deseja armazenar o projeto.
 
-Clone o Repositório:
-
+*Clone o Repositório:*
 Execute o comando git clone seguido do link que você copiou.
+<pre>
+ git clone link_do_repositorio_copiado
+</pre>
 
-git clone link_do_repositorio_copiado
-
-Passo 2: Instalar as Dependências
+### Passo 2: Instalar as Dependências
 Navegue até o Diretório do Projeto:
 
 Use o comando cd para entrar no diretório recém-clonado.
+<pre>
+ cd connectfy
+</pre>
 
-cd connectfy
-
-Instale as Dependências:
-
+*Instale as Dependências:*
 Execute o comando npm install para instalar todas as dependências listadas no arquivo package.json.
+<pre>
+ npm install
+</pre>
 
-npm install
-
-Passo 3: Executar a Aplicação em Modo de Desenvolvimento
+### Passo 3: Executar a Aplicação em Modo de Desenvolvimento
 Execute o Comando de Desenvolvimento:
-
 Use o comando fornecido no arquivo package.json para iniciar a aplicação em modo de desenvolvimento.
+<pre>
+ npm run dev
+</pre>
 
-npm run dev
+*Acesse a Aplicação:*
+Abra seu navegador e vá para o endereço indicado (http://localhost:5173/).
 
-Acesse a Aplicação:
-
-Abra seu navegador e vá para o endereço indicado (provavelmente http://localhost:3000).
-
-Passo 4: Explorar a Aplicação
+### Passo 4: Explorar a Aplicação:
 Agora, a aplicação deve estar rodando localmente em seu computador. Explore-a no navegador e veja como tudo funciona!
 
 ## Tecnologias utilisadas neste projeto:
-- react (Versão 18.2.0)
+- **react (Versão 18.2.0)**
+    Descrição: Biblioteca principal do React para construção de interfaces de usuário. 
 
-Descrição: Biblioteca principal do React para construção de interfaces de usuário. 
+- **@hookform/resolvers (Versão 3.3.2)**
+    Descrição: Resolvedores para o React Hook Form, uma biblioteca popular para gerenciar formulários em React.
+<pre>
+  npm install @hookform/resolvers
+</pre>
 
-- @hookform/resolvers (Versão 3.3.2)
+- **axios (Versão 1.6.2)**
+    Descrição: Um cliente HTTP baseado em promessas para o navegador e o Node.js.
+<pre>
+ npm install axios
+</pre>
 
-Descrição: Resolvedores para o React Hook Form, uma biblioteca popular para gerenciar formulários em React.
-Instalação: npm install @hookform/resolvers
+- **react-hook-form (Versão 7.48.2)**
+    Descrição: Biblioteca para gerenciar formulários em React.
+<pre>
+ npm install react-hook-form
+</pre>
 
-- axios (Versão 1.6.2)
+- **react-router-dom (Versão 6.18.0)**
+    Descrição: Biblioteca para navegação e roteamento em aplicativos React.
+<pre>
+ npm install react-router-dom
+</pre>
 
-Descrição: Um cliente HTTP baseado em promessas para o navegador e o Node.js.
-Instalação: npm install axios
+- **react-toastify (Versão 9.1.3)**
+    Descrição: Biblioteca para exibir notificações de toasts em React.
+<pre>
+ npm install react-toastify
+</pre>
 
-- react-hook-form (Versão 7.48.2)
+- **styled-components (Versão 6.1.1)**
+    Descrição: Biblioteca para estilizar componentes React com estilos baseados em componentes.
+<pre>
+ npm install styled-components
+</pre>
 
-Descrição: Biblioteca para gerenciar formulários em React.
-Instalação: npm install react-hook-form
+- **zod (Versão 3.22.4)**
+    Descrição: Biblioteca de validação de esquemas para JavaScript/TypeScript.
+<pre>
+ npm install zod
+</pre>
 
--react-router-dom (Versão 6.18.0)
+ - **vite (Versão 4.4.5)**
+    Descrição: Estrutura de desenvolvimento rápida para projetos web modernos.
+<pre>
+ npm install vite
+</pre>
 
-Descrição: Biblioteca para navegação e roteamento em aplicativos React.
-Instalação: npm install react-router-dom
-
-- react-toastify (Versão 9.1.3)
-
-Descrição: Biblioteca para exibir notificações de toasts em React.
-Instalação: npm install react-toastify
-
-styled-components (Versão 6.1.1)
-
-Descrição: Biblioteca para estilizar componentes React com estilos baseados em componentes.
-Instalação: npm install styled-components
-
-- zod (Versão 3.22.4)
-
-Descrição: Biblioteca de validação de esquemas para JavaScript/TypeScript.
-Instalação: npm install zod
-
- - vite (Versão 4.4.5)
-
-Descrição: Estrutura de desenvolvimento rápida para projetos web modernos.
-Instalação: npm install vite
-
-Para instalar todas as dependências listadas acima, basta executar o seguinte comando na raiz do projeto:
-
-npm install
+### Para instalar todas as dependências listadas acima, basta executar o seguinte comando na raiz do projeto:
+<pre>
+ npm install 
+</pre>
 
 Isso instalará tanto as dependências de produção quanto as dependências de desenvolvimento listadas no arquivo package.json.
 
@@ -122,9 +130,6 @@ Desde a Home Page:
 - Ao clicar em um contato já existente, o usuário será redirecionado a página deste contato onde o nome do contato deve aparecer no cabeçalho da página ao lado do botão de retornar a página home (onde estão listados seus contatos). Na página do contato, o usuário poderá editar todos os dados do seu contato, menos a data em que este contato foi criado.
 
 Voltando a Home Page, o usuário poderá fazer o logout desde o ícone no canto direito superior da tela.
-
-## Dependências:
-React + Vite
 
 ## Licença:
 Este projeto faz parte do curso Full Stack Developer da Kenzie Academy Brasil (www.kenzie.com.br). Todos os direitos e propriedade intelectual deste projeto pertencem à Kenzie Academy Brasil.

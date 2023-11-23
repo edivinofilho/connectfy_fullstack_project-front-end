@@ -1,6 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
+import { Slide, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const ContactContext = createContext({});
 
@@ -41,8 +43,17 @@ export const ContactProvider = ({ children }) => {
       });
       setContactList((contactList) => [...contactList, data]);
       setIsModalOpen(false);
+
+      toast.success('Nice work! New contact added', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
+
     } catch (error) {
-      console.log(error);
+      toast.error('Ooops, something went wrong!', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
     }
   };
 
@@ -58,9 +69,19 @@ export const ContactProvider = ({ children }) => {
         contactList.filter((contact) => contact.id !== contactId)
       );
 
+
       navigate("/home");
+
+      toast.success('Contact deleted.', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
+
     } catch (error) {
-      console.log(error);
+       toast.error('Ooops, something went wrong!', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
     }
   };
 
@@ -78,9 +99,16 @@ export const ContactProvider = ({ children }) => {
 
       setIsModalOpen(true);
       
+      toast.success('Contact details updated.', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
       
     } catch (error) {
-      console.log(error);
+      toast.error('Ooops, something went wrong!', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
     }
   };
 

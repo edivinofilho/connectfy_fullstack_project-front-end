@@ -1,14 +1,23 @@
+import { Link } from "react-router-dom";
+import { RegisterForm } from "../../components/RegisterForm";
+import { StyledParagraph } from "../../styles/typography";
+import { StyledHeader, StyledImg, StyledMain } from "../RegisterPage/style";
+import image from "../../images/light-logo.png"
 
-import { Link } from "react-router-dom"
-import { RegisterForm } from "../../components/RegisterForm"
+
 export const RegisterPage = () => {
-    return (
-        <div>
-            <h1>Register Page</h1>
+  return (
+    <StyledMain>
+      <StyledHeader>
+        <StyledImg src={image} alt="Logo Connectfy Light" />
+        <h1>Contacts</h1>
+      </StyledHeader>
 
-            <RegisterForm />
-            
-            <p><Link to='/'>Already Registered? Login here</Link> ;)</p>
-        </div>
-    )
-}
+      <RegisterForm />
+
+      <StyledParagraph fontSize={"lg"}>
+        <Link to="/">Already Registered? Login here</Link> ;)
+      </StyledParagraph>
+    </StyledMain>
+  );
+};

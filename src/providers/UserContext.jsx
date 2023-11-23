@@ -50,13 +50,18 @@ export const UserProvider = ({ children }) => {
   const userRegister = async (formData) => {
     try {
       await api.post("/users", formData);
-      console.log("Cadastro efetuado com sucesso!");
       navigate("/");
-      //Adicionar Toatfy Success
-    } catch (error) {
-      console.log(error);
 
-      //Adicionar Toatfy Error
+      toast.success('Nice! Account created, just login now ;)', {
+        transition: Slide,
+        autoClose: 2000
+      })  
+      
+    } catch (error) {
+      toast.error('Ooops, something went wrong!', {
+        transition: Slide,
+        autoClose: 2000
+      })  
     }
   };
 
@@ -77,7 +82,6 @@ export const UserProvider = ({ children }) => {
       navigate("/home")
 
     } catch (error) {
-      console.log(error)
       toast.error('Ooops, something went wrong!', {
         transition: Slide,
         autoClose: 2000
@@ -99,13 +103,25 @@ export const UserProvider = ({ children }) => {
     
         navigate("/")
 
-        // set toast of loggin out
+        toast.success('See you later!', {
+          transition: Slide,
+          autoClose: 2000
+        }) 
   }
 
-  const getUser = async () => {
+  const getUser = async (userId) => {
     try {
-      // console.log(user)
-      navigate("/user")
+      navigate("/home")
+      if(!userId){
+        toast.error('Ooopss!, try again later', {
+          transition: Slide,
+          autoClose: 2000
+        })
+
+      } else {
+        navigate(`/user/${userId}`)
+
+      }
     } catch (error) {
       console.log(error)
     }
@@ -124,9 +140,17 @@ export const UserProvider = ({ children }) => {
       setUser(data)
       
       setIsModalOpen(true);
+
+      toast.success('Data updated successfully', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
       
     } catch (error) {
-      console.log(error);
+      toast.error('Ooops, something went wrong!', {
+        transition: Slide,
+        autoClose: 2000
+      }) 
     }
   };
 
@@ -139,9 +163,20 @@ export const UserProvider = ({ children }) => {
         },
       });
 
+      setUser(null)
       navigate("/");
+
+      toast.success('Your account was deleted :(', {
+        transition: Slide,
+        autoClose: 2000
+      })
+
+
     } catch (error) {
-      console.log(error);
+      toast.error('Ooops, something went wrong!', {
+        transition: Slide,
+        autoClose: 2000
+      })
     }
   };
 

@@ -5,12 +5,14 @@ export const ResetStyle = createGlobalStyle`
         box-sizing: 0;
         padding: 0;
         margin: 0;
+        background-color: #D9D9D9;
+        font-family: var(--font-primary);
     }
 
     button {
         cursor: pointer;
-        /* background: transparent; */
-        /* border: none; */
+        background-color: transparent;
+        border: none;
     }
 
     a {
@@ -23,9 +25,12 @@ export const ResetStyle = createGlobalStyle`
     }
 
     input {
-        border-radius: 0;
-        /* border: none; */
-        background: none;
+        border-radius: 7px;
+        border: none;
+    }
+
+    ul, li {
+        list-style: none;
     }
 
     img {

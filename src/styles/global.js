@@ -8,5 +8,10 @@ export const GlobalStyle = createGlobalStyle`
         --color-text-secondary: #5E17EB;
         --color-text-button: #FFFFFF;
         --color-background: #D9D9D9;
+
     }
+
+    /* #root {
+        background-color: blue;
+    } */
 `

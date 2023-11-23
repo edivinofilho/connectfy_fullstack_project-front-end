@@ -7,6 +7,8 @@ import { Input } from "../Input";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormSchema } from "./loginFormSchema";
+import { Button } from "../Button";
+import { StyledForm } from "./style";
 
 export const LoginForm = ({ onerror }) => {
   // const [showPassword, setShowPassword] = useState(false)
@@ -33,8 +35,7 @@ export const LoginForm = ({ onerror }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <div>
+    <StyledForm onSubmit={handleSubmit(submit)}>
         <Input
           label="Email"
           type="email"
@@ -49,8 +50,7 @@ export const LoginForm = ({ onerror }) => {
           error={errors.password}
         />
 
-        <button type="submit">Login</button>
-      </div>
-    </form>
+        <Button text={"Login"} type="submit" />
+    </StyledForm>
   );
 };

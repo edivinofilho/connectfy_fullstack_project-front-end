@@ -39,9 +39,10 @@ export const StyledTitleThree = styled.h3`
 
 export const StyledParagraph = styled.p`
     font-family: var(--font-primary);
-    color: var(--color-text-primary);
+    color: var(--color-text-secondary);
     line-height: 1.6;
     font-weight: 400;
+    transition: 0.5s;
 
     ${({fontSize}) => {
         switch(fontSize){
@@ -59,5 +60,9 @@ export const StyledParagraph = styled.p`
                 `
         }
     } 
-}   
+}
+
+&:hover {
+    color:var(--color-primary)
+}
 `

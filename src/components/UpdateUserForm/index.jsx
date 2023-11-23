@@ -24,9 +24,9 @@ export const UpdateUserForm = ({ setIsUpdating }) => {
   }, [user, reset, closeModal]);
 
   const submit = (formData) => {
-    updateUser(user.userId, formData);
+    updateUser(user.id, formData);
     reset();
-    console.log(formData);
+    console.log(user)
     setIsUpdating(false)
   };
 

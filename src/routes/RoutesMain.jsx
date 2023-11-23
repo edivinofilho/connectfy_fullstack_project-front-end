@@ -28,7 +28,7 @@ export const RoutesMain = () => {
           }
         />
         <Route
-          path="/user"
+          path="/user/:id"
           element={
             <ContactProvider>
               <UserPage />

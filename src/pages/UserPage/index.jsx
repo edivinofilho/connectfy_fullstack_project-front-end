@@ -30,7 +30,7 @@ export const UserPage = () => {
       </li>
       <ContactModal isOpen={isDeleting} closeModal={() => setIsDeleting(false)}>
         <p>Are you sure that you want to delete this contact?</p>
-        <button onClick={() => deleteUser(user.userId)}>Delete Contact</button>
+        <button onClick={() => deleteUser(user.id)}>Delete Contact</button>
       </ContactModal>
 
       <ContactModal isOpen={isUpdating} closeModal={() => setIsUpdating(false)}>

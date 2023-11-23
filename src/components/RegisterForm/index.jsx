@@ -5,13 +5,15 @@ import { registerFormSchema } from "./registerFormSchema";
 
 import { UserContext } from "../../providers/UserContext";
 import { useContext } from "react";
+import { Button } from "../Button";
+import { StyledRegisterForm } from "./style";
 
 export const RegisterForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm({
     resolver: zodResolver(registerFormSchema),
   });
@@ -20,12 +22,12 @@ export const RegisterForm = () => {
 
   const submit = (formData) => {
     userRegister(formData);
-    reset()
+    reset();
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <div>
+    <StyledRegisterForm onSubmit={handleSubmit(submit)}>
+      <>
         <Input
           label="Name"
           type="text"
@@ -61,8 +63,8 @@ export const RegisterForm = () => {
           error={errors.telephone}
         />
 
-        <button type="submit"> Register</button>
-      </div>
-    </form>
+        <Button text={"Register"} type="submit" />
+      </>
+    </StyledRegisterForm>
   );
 };

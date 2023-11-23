@@ -3,9 +3,13 @@ import { useForm } from "react-hook-form";
 import { ContactContext } from "../../providers/ContactContext";
 
 import { Input } from "../Input";
+import { StyledContactForm } from "../AddContactForm/style";
+import { ContactInput } from "../AddContactForm/ContactInput";
+import { ContactButton } from "../AddContactForm/ContactButton";
 
 export const UpdateContactForm = ({ contact, setIsUpdating }) => {
-  const { updateContact, setIsModalOpen, closeModal } = useContext(ContactContext);
+  const { updateContact, setIsModalOpen, closeModal } =
+    useContext(ContactContext);
   const {
     register,
     handleSubmit,
@@ -14,38 +18,38 @@ export const UpdateContactForm = ({ contact, setIsUpdating }) => {
   } = useForm();
 
   useEffect(() => {
-    reset(); 
-    closeModal()
+    reset();
+    closeModal();
   }, [contact, reset, closeModal]);
 
   const submit = (formData) => {
     updateContact(contact.id, formData);
     reset();
-    setIsUpdating(false)
+    setIsUpdating(false);
   };
 
   return (
-    <form onSubmit={handleSubmit(submit)}>
-      <Input
+    <StyledContactForm onSubmit={handleSubmit(submit)}>
+      <ContactInput
         label="Full Name"
         type="text"
         {...register("name", { value: contact.name })}
       />
 
-      <Input
+      <ContactInput
         label="Email Address"
         type="email"
         {...register("email", { value: contact.email })}
         error={errors.email}
       />
 
-      <Input
+      <ContactInput
         label="Telephone Number"
         type="text"
         {...register("telephone", { value: contact.telephone })}
       />
 
-      <button type="submit">Update Contact</button>
-    </form>
+      <ContactButton text={"Update Details"} type="submit" />
+    </StyledContactForm>
   );
 };

@@ -1,33 +1,16 @@
-import React, { useState } from 'react';
+import { StyledModal, StyledModalContainer } from "./style";
 
 export const ContactModal = ({ isOpen, closeModal, children }) => {
   return (
-    <div
+    <StyledModalContainer
       style={{
-        display: isOpen ? 'block' : 'none',
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        width: '100%',
-        height: '100%',
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        zIndex: '1',
+        display: isOpen ? "block" : "none",
       }}
     >
-      <div
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          backgroundColor: '#fff',
-          padding: '20px',
-          borderRadius: '8px',
-        }}
-      >
+      <StyledModal>
         {children}
         <button onClick={closeModal}>Close</button>
-      </div>
-    </div>
+      </StyledModal>
+    </StyledModalContainer>
   );
 };

@@ -10,8 +10,7 @@ import { LoginFormSchema } from "./loginFormSchema";
 import { Button } from "../Button";
 import { StyledForm } from "./style";
 
-export const LoginForm = ({ onerror }) => {
-  // const [showPassword, setShowPassword] = useState(false)
+export const LoginForm = () => {
 
   const {
     register,
@@ -30,27 +29,27 @@ export const LoginForm = ({ onerror }) => {
       userLogin(formData);
       reset();
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
   return (
     <StyledForm onSubmit={handleSubmit(submit)}>
-        <Input
-          label="Email"
-          type="email"
-          {...register("email")}
-          error={errors.email}
-        />
+      <Input
+        label="Email"
+        type="email"
+        {...register("email")}
+        error={errors.email}
+      />
 
-        <Input
-          label="Password"
-          type="password"
-          {...register("password")}
-          error={errors.password}
-        />
+      <Input
+        label="Password"
+        type="password"
+        {...register("password")}
+        error={errors.password}
+      />
 
-        <Button text={"Login"} type="submit" />
+      <Button text={"Login"} type="submit" />
     </StyledForm>
   );
 };

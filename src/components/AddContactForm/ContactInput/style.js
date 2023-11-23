@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.div`
+export const StyledContactInput = styled.div`
   display: flex;
   flex-direction: column;
   width: 97%;
+  background-color: #545454;
 
   > input {
     padding: 0.8rem;
@@ -24,5 +25,11 @@ export const StyledInput = styled.div`
     font-size: 1.1rem;
 
     color: var(--color-primary);
+
+    background-color: #545454;
+
+    @media (max-width: 321px) {
+      font-size: 0.9rem;
+    }
   }
 `;

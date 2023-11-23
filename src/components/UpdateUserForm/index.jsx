@@ -1,15 +1,16 @@
-import { useContext, useState, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useForm } from "react-hook-form";
+
 import { ContactContext } from "../../providers/ContactContext";
 import { UserContext } from "../../providers/UserContext";
-
-import { Input } from "../Input";
-import { Link } from "react-router-dom";
-import { ContactModal } from "../ContactModal";
+import { ContactButton } from "../AddContactForm/ContactButton";
+import { StyledContactForm } from "../AddContactForm/style";
+import { ContactInput } from "../AddContactForm/ContactInput";
 
 export const UpdateUserForm = ({ setIsUpdating }) => {
   const { user, updateUser } = useContext(UserContext);
-  const { deleteContact, updateContact, closeModal, isModalOpen } = useContext(ContactContext);
+  const { deleteContact, updateContact, closeModal, isModalOpen } =
+    useContext(ContactContext);
 
   const {
     register,
@@ -26,41 +27,33 @@ export const UpdateUserForm = ({ setIsUpdating }) => {
   const submit = (formData) => {
     updateUser(user.id, formData);
     reset();
-    console.log(user)
-    setIsUpdating(false)
+    setIsUpdating(false);
   };
 
   return (
     <main>
-
-      <form onSubmit={handleSubmit(submit)}>
-        <Input
+      <StyledContactForm onSubmit={handleSubmit(submit)}>
+        <ContactInput
           label="Username"
           type="text"
           {...register("name", { value: user.name })}
         />
-  
-        <Input
+
+        <ContactInput
           label="Email Address"
           type="email"
           {...register("email", { value: user.email })}
           error={errors.email}
         />
-  
-        <Input
+
+        <ContactInput
           label="Telephone Number"
           type="text"
           {...register("telephone", { value: user.telephone })}
         />
-  
-        <Input
-          label="Password"
-          type="password"
-          {...register("password", { value: user.password })}
-        />
-  
-        <button type="submit">Update Details</button>
-      </form>
+
+        <ContactButton text={"Update Details"} type="submit" />
+      </StyledContactForm>
     </main>
   );
 };

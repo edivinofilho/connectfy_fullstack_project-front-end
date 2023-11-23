@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
-import { StyledContactCard } from "./style";
+import { StyledContactCardData } from "./style";
 
 export const ContactCard = ({ contact }) => {
   return (
-    <StyledContactCard>
+    <StyledContactCardData>
       <Link to={`/home/contact/${contact.id}`}>
-
-          <h3>{contact.name}</h3>
-          <p>{contact.telephone}</p>
+        <h3>{contact.name}</h3>
+        <p>{contact.telephone}</p>
       </Link>
-    </StyledContactCard>
+    </StyledContactCardData>
   );
 };

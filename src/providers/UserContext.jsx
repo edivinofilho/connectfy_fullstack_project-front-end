@@ -1,49 +1,48 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
-import { Slide, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { Slide, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [userApiData, setUserApiData] = useState(null)
-  const [loading, setLoading ] = useState(false)
+  const [userApiData, setUserApiData] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const currentPath = window.location.pathname; 
-  
-  useEffect(() => {
-    const token = localStorage.getItem("@TOKEN")
-    const id = localStorage.getItem("@USERID")
+  const currentPath = window.location.pathname;
 
-    const loadUser = async() => {
+  useEffect(() => {
+    const token = localStorage.getItem("@TOKEN");
+    const id = localStorage.getItem("@USERID");
+
+    const loadUser = async () => {
       try {
-        setLoading(true)
-        const {data} = await api.get(`/users/${id}`, {
+        setLoading(true);
+        const { data } = await api.get(`/users/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        })
+        });
 
-        setUser(data)
-        navigate(currentPath)
+        setUser(data);
+        navigate(currentPath);
       } catch (error) {
-        console.log(error)
-        localStorage.removeItem("@TOKEN")
-        localStorage.removeItem("@USERID")
-        setUser(null)
-
+        console.log(error);
+        localStorage.removeItem("@TOKEN");
+        localStorage.removeItem("@USERID");
+        setUser(null);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
-    
-    if(token && id){
+    };
+
+    if (token && id) {
       loadUser();
     }
-  }, [])
+  }, []);
 
   const navigate = useNavigate();
 
@@ -52,83 +51,77 @@ export const UserProvider = ({ children }) => {
       await api.post("/users", formData);
       navigate("/");
 
-      toast.success('Nice! Account created, just login now ;)', {
+      toast.success("Nice! Account created, just login now ;)", {
         transition: Slide,
-        autoClose: 2000
-      })  
-      
+        autoClose: 2000,
+      });
     } catch (error) {
-      toast.error('Ooops, something went wrong!', {
+      toast.error("Ooops, something went wrong!", {
         transition: Slide,
-        autoClose: 2000
-      })  
+        autoClose: 2000,
+      });
     }
   };
 
   const userLogin = async (formData) => {
     try {
       const { data } = await api.post("/login", formData);
-      localStorage.setItem("@TOKEN", data.token.token)
-      localStorage.setItem("@USERID", data.token.userData.id)
-      setUser(data.token.userData)
+      localStorage.setItem("@TOKEN", data.token.token);
+      localStorage.setItem("@USERID", data.token.userData.id);
+      setUser(data.token.userData);
 
-      setUserApiData(data)
+      setUserApiData(data);
 
-      toast.success('Cool! Logging you in', {
+      toast.success("Cool! Logging you in", {
         transition: Slide,
-        autoClose: 2000
-      })  
-    
-      navigate("/home")
+        autoClose: 2000,
+      });
 
+      navigate("/home");
     } catch (error) {
-      toast.error('Ooops, something went wrong!', {
+      toast.error("Ooops, something went wrong!", {
         transition: Slide,
-        autoClose: 2000
-      }) 
-      
+        autoClose: 2000,
+      });
 
-      localStorage.removeItem("@TOKEN")
-      localStorage.removeItem("@USERID")
-      setUser(null)
-      setUserApiData(null)
+      localStorage.removeItem("@TOKEN");
+      localStorage.removeItem("@USERID");
+      setUser(null);
+      setUserApiData(null);
     }
   };
 
   const userLogout = () => {
-        localStorage.removeItem("@TOKEN")
-        localStorage.removeItem("@USERID")
-        setUser(null)
-        setUserApiData(null)
-    
-        navigate("/")
+    localStorage.removeItem("@TOKEN");
+    localStorage.removeItem("@USERID");
+    setUser(null);
+    setUserApiData(null);
 
-        toast.success('See you later!', {
-          transition: Slide,
-          autoClose: 2000
-        }) 
-  }
+    navigate("/");
+
+    toast.success("See you later!", {
+      transition: Slide,
+      autoClose: 2000,
+    });
+  };
 
   const getUser = async (userId) => {
     try {
-      navigate("/home")
-      if(!userId){
-        toast.error('Ooopss!, try again later', {
+      if (!userId) {
+        toast.error("Ooopss!, try again later", {
           transition: Slide,
-          autoClose: 2000
-        })
-
+          autoClose: 2000,
+        });
       } else {
-        navigate(`/user/${userId}`)
-
+        navigate(`/user/${userId}`);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const updateUser = async (userId, formData) => {
-    setIsModalOpen(true)
+    setIsModalOpen(true);
     try {
       const token = localStorage.getItem("@TOKEN");
       const { data } = await api.patch(`/users/${userId}`, formData, {
@@ -137,20 +130,19 @@ export const UserProvider = ({ children }) => {
         },
       });
 
-      setUser(data)
-      
+      setUser(data);
+
       setIsModalOpen(true);
 
-      toast.success('Data updated successfully', {
+      toast.success("Data updated successfully", {
         transition: Slide,
-        autoClose: 2000
-      }) 
-      
+        autoClose: 2000,
+      });
     } catch (error) {
-      toast.error('Ooops, something went wrong!', {
+      toast.error("Ooops, something went wrong!", {
         transition: Slide,
-        autoClose: 2000
-      }) 
+        autoClose: 2000,
+      });
     }
   };
 
@@ -163,25 +155,38 @@ export const UserProvider = ({ children }) => {
         },
       });
 
-      setUser(null)
+      setUser(null);
       navigate("/");
 
-      toast.success('Your account was deleted :(', {
+      toast.success("Your account was deleted :(", {
         transition: Slide,
-        autoClose: 2000
-      })
-
-
+        autoClose: 2000,
+      });
     } catch (error) {
-      toast.error('Ooops, something went wrong!', {
+      toast.error("Ooops, something went wrong!", {
         transition: Slide,
-        autoClose: 2000
-      })
+        autoClose: 2000,
+      });
     }
   };
 
   return (
-    <UserContext.Provider value={{ user, setUser, userApiData, setUserApiData, userRegister, userLogin, userLogout, getUser, deleteUser, updateUser, setLoading, loading }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        userApiData,
+        setUserApiData,
+        userRegister,
+        userLogin,
+        userLogout,
+        getUser,
+        deleteUser,
+        updateUser,
+        setLoading,
+        loading,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

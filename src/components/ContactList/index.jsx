@@ -1,43 +1,33 @@
-import { ContactCard } from "./ContactCard"
+import { ContactCard } from "./ContactCard";
+import { StyledContactCardContainer, StyledIndex } from "./ContactCard/style";
 import { StyledContactList } from "./style";
 
-export const ContactList = ({contactList}) => {
-    const sortedContactList = contactList.slice().sort((a, b) => a.name.localeCompare(b.name));
+export const ContactList = ({ contactList }) => {
+  const sortedContactList = contactList
+    .slice()
+    .sort((a, b) => a.name.localeCompare(b.name));
 
-    return(
-        <StyledContactList>
+  return (
+    <StyledContactList>
+      {"ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("").map((letter) => {
+        const contactsForLetter = sortedContactList.filter((contact) => {
+          return contact.name[0].toUpperCase() === letter;
+        });
 
-{
-        'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(letter => {
+        if (contactsForLetter.length > 0) {
+          return (
+            <StyledContactCardContainer key={letter}>
+              <StyledIndex>{letter}</StyledIndex>
 
-          const contactsForLetter = sortedContactList.filter(contact => {
-            return contact.name[0].toUpperCase() === letter;  
-          });
-          
-          if(contactsForLetter.length > 0) {
-            return (
-              <div key={letter}>
-                <h3>{letter}</h3>
-                
-                {contactsForLetter.map(contact => (
-                  <ContactCard 
-                    key={contact.id}
-                    contact={contact}
-                  />
-                ))}
-                
-              </div>
-            )
-          }
+              {contactsForLetter.map((contact) => (
+                <ContactCard key={contact.id} contact={contact} />
+              ))}
+            </StyledContactCardContainer>
+          );
+        }
 
-          return null;
-
-        })
-      }
-
-            {/* {sortedContactList.map(contact => (
-                <ContactCard key={contact.id} contact={contact}/>
-            ))} */}
-        </StyledContactList>
-    )
-}
+        return null;
+      })}
+    </StyledContactList>
+  );
+};

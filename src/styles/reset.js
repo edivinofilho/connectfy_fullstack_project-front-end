@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const ResetStyle = createGlobalStyle`
     *{
@@ -36,4 +36,4 @@ export const ResetStyle = createGlobalStyle`
     img {
         max-width: 100%;
     }
-`
+`;

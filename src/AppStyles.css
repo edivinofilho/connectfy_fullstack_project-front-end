@@ -1,0 +1,9 @@
+.Toastify__toast.custom-toast {
+  background-color: transparent;
+  color: #545454;
+  font-weight: 700;
+}
+
+.Toastify__toast-body.custom-toast-body {
+  background-color: transparent !important;
+}

@@ -1,12 +1,12 @@
 import { forwardRef } from "react";
-import { StyledInput } from "./style";
+import { StyledContactInput } from "./style";
 
-export const Input = forwardRef(({ label, error, ...rest }, ref) => {
+export const ContactInput = forwardRef(({ label, error, ...rest }, ref) => {
   return (
-    <StyledInput>
+    <StyledContactInput>
       {label ? <label>{label}</label> : null}
       <input ref={ref} {...rest} />
       {error ? <p>{error.message}</p> : null}
-    </StyledInput>
+    </StyledContactInput>
   );
 });

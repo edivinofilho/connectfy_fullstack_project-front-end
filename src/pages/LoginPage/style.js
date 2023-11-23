@@ -8,8 +8,8 @@ export const StyledMain = styled.main`
   justify-content: center;
   flex-direction: column;
 
-  padding-top: 6rem;
-  gap: 5rem;
+  padding-top: 2rem;
+  gap: 4.2rem;
 
   @media (max-width: 281px) {
     gap: 3rem;

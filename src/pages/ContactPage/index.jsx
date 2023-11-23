@@ -1,8 +1,28 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { ContactContext } from "../../providers/ContactContext";
 import { ContactModal } from "../../components/ContactModal";
 import { UpdateContactForm } from "../../components/UpdateContactForm";
+
+import {
+  StyledButton,
+  StyledConfirmModal,
+  StyledContactDetails,
+  StyledHeader,
+  StyledIconDiv,
+  StyledLabel,
+  StyledParagraphOne,
+  StyledPhrase,
+  StyledSpan,
+  StyledUserPanel,
+} from "./style";
+import {
+  StyledBodyDiv,
+  StyledDarkLogoImg,
+  StyledHomeMain,
+} from "../HomePage/style";
+
+import logo_dark from "../../images/dark-logo.png";
 
 export const ContactPage = () => {
   const { id } = useParams();
@@ -16,55 +36,95 @@ export const ContactPage = () => {
     .slice()
     .sort((a, b) => a.name.localeCompare(b.name));
 
-  
   return (
-    <main>
+    <ul>
       {sortedContactList.map((contact) => {
         if (contact.id === id) {
           return (
-            <ul>
-              <li key={contact.id}>
-                <h1>{contact.name}</h1>
-                <div>
-                  <p>Name: {contact.name}</p>
-                  <p>Email: {contact.email}</p>
-                  <p>Telephone: {contact.telephone}</p>
-                  <hr />
+            <li key={contact.id}>
+              <StyledBodyDiv>
+                <StyledHeader>
+                  <StyledUserPanel>
+                    <h2>{contact.name}</h2>
+                    <StyledIconDiv>
+                      <div onClick={() => setIsUpdating(true)}>
+                        <span className="material-symbols-outlined">Edit</span>
+                      </div>
+                      <Link to="/home">
+                        <span className="material-symbols-outlined">
+                          arrow_back_ios_new
+                        </span>
+                      </Link>
+                    </StyledIconDiv>
+                  </StyledUserPanel>
+                </StyledHeader>
 
-                  <button onClick={() => setIsDeleting(true)}>
-                    Delete Contact
-                  </button>
+                <StyledSpan />
 
-                  <button onClick={() => setIsUpdating(true)}>
-                    Update Contact
-                  </button>
-                </div>
-              </li>
+                <StyledHomeMain>
+                  <StyledContactDetails>
+                    <span>
+                      <StyledLabel>Name:</StyledLabel>
+                      <StyledParagraphOne fontSize={"lg"}>
+                        {contact.name}
+                      </StyledParagraphOne>
+                    </span>
+                    <span>
+                      <StyledLabel>Email:</StyledLabel>
+                      <StyledParagraphOne fontSize={"md"}>
+                        {contact.email}
+                      </StyledParagraphOne>
+                    </span>
+                    <span>
+                      <StyledLabel>Telephone:</StyledLabel>
+                      <StyledParagraphOne fontSize={"md"}>
+                        {contact.telephone}
+                      </StyledParagraphOne>
+                    </span>
+                    <span>
+                      <StyledLabel>Registered Date:</StyledLabel>
+                      <StyledParagraphOne fontSize={"sm"}>
+                        {contact.createdAt}
+                      </StyledParagraphOne>
+                    </span>
+
+                    <StyledButton onClick={() => setIsDeleting(true)}>
+                      Delete Contact
+                    </StyledButton>
+                  </StyledContactDetails>
+                </StyledHomeMain>
+              </StyledBodyDiv>
+
               <ContactModal
                 isOpen={isDeleting}
                 closeModal={() => setIsDeleting(false)}
               >
-                <p>Are you sure that you want to delete this contact?</p>
-                <button onClick={() => deleteContact(contact.id)}>
-                  Delete Contact
-                </button>
+                <StyledConfirmModal>
+                  <StyledPhrase>
+                    Are you sure that you want to delete this contact?
+                  </StyledPhrase>
+                  <StyledButton onClick={() => deleteContact(contact.id)}>
+                    Delete Contact
+                  </StyledButton>
+                </StyledConfirmModal>
               </ContactModal>
 
               <ContactModal
                 isOpen={isUpdating}
                 closeModal={() => setIsUpdating(false)}
               >
-                <p>Update Contact Details</p>
-                <UpdateContactForm contact={contact} setIsUpdating={setIsUpdating}/>
-
+                <StyledDarkLogoImg src={logo_dark} alt="Logo Connectfy Dark" />
+                <UpdateContactForm
+                  contact={contact}
+                  setIsUpdating={setIsUpdating}
+                />
               </ContactModal>
-            </ul>
+            </li>
           );
         }
       })}
 
-      <Link to="/home">Back</Link>
       <ContactModal isOpen={isModalOpen} closeModal={closeModal}></ContactModal>
-    </main>
+    </ul>
   );
 };

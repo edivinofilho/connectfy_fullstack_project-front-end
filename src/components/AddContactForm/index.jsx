@@ -1,28 +1,49 @@
-import { useContext, useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { ContactContext } from '../../providers/ContactContext'
+import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { ContactContext } from "../../providers/ContactContext";
 
-import { Input } from "../Input"
-
+import { ContactInput } from "./ContactInput";
+import { StyledContactForm } from "./style";
+import { ContactButton } from "./ContactButton";
 
 export const AddContactForm = (setContactList) => {
-    const { createContact } = useContext(ContactContext);
-    const { register, handleSubmit, formState: {errors}, reset } = useForm()
+  const { createContact } = useContext(ContactContext);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm();
 
-    const submit = (formData) => {
-        createContact(formData)
-        reset()
-    }
+  const submit = (formData) => {
+    createContact(formData);
+    reset();
+  };
 
-    return(
-        <form onSubmit={handleSubmit(submit)}>
-            <Input label='Full Name' type='text' {...register('name')} error={errors.name}/>
+  return (
+    <StyledContactForm onSubmit={handleSubmit(submit)}>
+      <ContactInput
+        label="Full "
+        type="text"
+        {...register("name")}
+        error={errors.name}
+      />
 
-            <Input label='Email Address' type='email' {...register('email')} error={errors.email}/>
+      <ContactInput
+        label="Email Address"
+        type="email"
+        {...register("email")}
+        error={errors.email}
+      />
 
-            <Input label='Telephone Number' type='text' {...register('telephone')} error={errors.telephone}/>
+      <ContactInput
+        label="Telephone Number"
+        type="text"
+        {...register("telephone")}
+        error={errors.telephone}
+      />
 
-            <button type='submit'>Add Contact</button>
-        </form>
-    )
-}
+      <ContactButton text={"Add Contact"} type="submit" />
+    </StyledContactForm>
+  );
+};

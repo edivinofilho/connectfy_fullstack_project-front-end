@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledBodyDiv = styled.main`
+export const StyledBodyDiv = styled.div`
   width: 100%;
 
   display: flex;
@@ -11,11 +11,11 @@ export const StyledBodyDiv = styled.main`
   gap: 0.3rem;
 
   @media (max-width: 281px) {
-    gap: 3rem;
+    gap: 0.5rem;
   }
 `;
 
-export const StyledHomeMain = styled.main`
+export const StyledHomeMain = styled.div`
   width: 100%;
 
   display: flex;
@@ -26,12 +26,11 @@ export const StyledHomeMain = styled.main`
   gap: 5rem;
 
   padding-top: 5rem;
-
 `;
 
 export const StyledHeader = styled.header`
-  width: 100%;
-  max-width: 55rem;
+  width: 90%;
+  max-width: 49rem;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -39,7 +38,7 @@ export const StyledHeader = styled.header`
 `;
 
 export const StyledUserPanel = styled.div`
-  width: 95%;
+  width: 90%;
 
   display: flex;
   align-items: center;
@@ -71,7 +70,7 @@ export const StyledIconDiv = styled.div`
 `;
 
 export const StyledSearchPanel = styled.div`
-  width: 100%;
+  width: 95%;
 
   display: flex;
   align-items: center;
@@ -80,13 +79,13 @@ export const StyledSearchPanel = styled.div`
 
   > button {
     position: absolute;
-    right: 1.5625rem;
-    top: 1.1rem;
+    right: 1.2rem;
+    top: 0.5rem;
   }
 `;
 
 export const StyledNoContactsDiv = styled.div`
-  max-width: 55rem;
+  max-width: 47rem;
 
   display: flex;
   align-items: center;
@@ -98,6 +97,10 @@ export const StyledNoContactsDiv = styled.div`
   gap: 1.5rem;
 
   width: 100%;
+
+  @media (max-width: 769px) {
+    max-width: 26rem;
+  }
 `;
 
 export const StyledMainImg = styled.img`
@@ -114,7 +117,7 @@ export const StyledLogoImg = styled.img`
   width: 15%;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 0px;
 
   @media (max-width: 278px) {
     position: relative;
@@ -122,7 +125,13 @@ export const StyledLogoImg = styled.img`
   }
 `;
 
+export const StyledDarkLogoImg = styled.img`
+  max-width: 10rem;
+  width: 28%;
+  align-self: center;
+`;
+
 export const StyledSpan = styled.span`
-    width: 100%;
-    border-bottom: 3px solid var(--color-text-button);
-`
+  width: 100%;
+  border-bottom: 3px solid var(--color-text-button);
+`;

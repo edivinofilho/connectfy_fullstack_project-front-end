@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { api } from "../services/api";
-import { Slide, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import { Slide, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const ContactContext = createContext({});
 
@@ -44,16 +44,15 @@ export const ContactProvider = ({ children }) => {
       setContactList((contactList) => [...contactList, data]);
       setIsModalOpen(false);
 
-      toast.success('Nice work! New contact added', {
+      toast.success("Nice work! New contact added", {
         transition: Slide,
-        autoClose: 2000
-      }) 
-
+        autoClose: 2000,
+      });
     } catch (error) {
-      toast.error('Ooops, something went wrong!', {
+      toast.error("Ooops, something went wrong!", {
         transition: Slide,
-        autoClose: 2000
-      }) 
+        autoClose: 2000,
+      });
     }
   };
 
@@ -69,24 +68,22 @@ export const ContactProvider = ({ children }) => {
         contactList.filter((contact) => contact.id !== contactId)
       );
 
-
       navigate("/home");
 
-      toast.success('Contact deleted.', {
+      toast.success("Contact deleted.", {
         transition: Slide,
-        autoClose: 2000
-      }) 
-
+        autoClose: 2000,
+      });
     } catch (error) {
-       toast.error('Ooops, something went wrong!', {
+      toast.error("Ooops, something went wrong!", {
         transition: Slide,
-        autoClose: 2000
-      }) 
+        autoClose: 2000,
+      });
     }
   };
 
   const updateContact = async (contactId, formData) => {
-    setIsModalOpen(true)
+    setIsModalOpen(true);
     try {
       const token = localStorage.getItem("@TOKEN");
       const { data } = await api.patch(`/contacts/${contactId}`, formData, {
@@ -94,21 +91,24 @@ export const ContactProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      
-      setContactList((contactList) => contactList.map(contact => (contact.id === contactId ? data : contact)));
+
+      setContactList((contactList) =>
+        contactList.map((contact) =>
+          contact.id === contactId ? data : contact
+        )
+      );
 
       setIsModalOpen(true);
-      
-      toast.success('Contact details updated.', {
+
+      toast.success("Contact details updated.", {
         transition: Slide,
-        autoClose: 2000
-      }) 
-      
+        autoClose: 2000,
+      });
     } catch (error) {
-      toast.error('Ooops, something went wrong!', {
+      toast.error("Ooops, something went wrong!", {
         transition: Slide,
-        autoClose: 2000
-      }) 
+        autoClose: 2000,
+      });
     }
   };
 

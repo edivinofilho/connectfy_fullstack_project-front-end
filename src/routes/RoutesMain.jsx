@@ -1,14 +1,15 @@
 import { Route, Routes } from "react-router-dom";
+
 import { LoginPage } from "../pages/LoginPage";
 import { RegisterPage } from "../pages/RegisterPage";
 import { HomePage } from "../pages/HomePage";
 import { ContactPage } from "../pages/ContactPage";
-import { useEffect, useState } from "react";
+
 import { ProtectedRoutes } from "../components/ProtectedRoutes";
 import { PublicRoutes } from "../components/PublicRoutes";
+
 import { ContactProvider } from "../providers/ContactContext";
 import { UserPage } from "../pages/UserPage";
-import { UserProvider } from "../providers/UserContext";
 
 export const RoutesMain = () => {
   return (
@@ -47,4 +48,3 @@ export const RoutesMain = () => {
     </Routes>
   );
 };
-// <Route path='/home' element={<HomePage contactList={contactList} setContactList={setContactList}/>}/>

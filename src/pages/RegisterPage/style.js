@@ -1,49 +1,48 @@
 import styled from "styled-components";
 
 export const StyledMain = styled.main`
-    width: 100%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  width: 100%;
 
-    padding-top: 2rem;
-    gap: 3.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 
-    @media (max-width: 281px) {
-        gap: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 
-    }
+  gap: 3.8rem;
 
-`
+  @media (max-width: 281px) {
+    gap: 3rem;
+  }
+`;
 
 export const StyledHeader = styled.header`
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-primary);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+
+  > h1 {
+    font-size: 3.4375rem;
+    font-weight: 400;
+  }
+  @media (max-width: 281px) {
+    flex-direction: column;
 
     > h1 {
-        font-size: 3.4375rem;
-        font-weight: 400;
-
+      font-size: 1.875rem;
     }
-    @media (max-width: 281px) {
-        flex-direction: column;
-
-        > h1 {
-        font-size: 1.875rem;
-    }
-    }
-`
+  }
+`;
 
 export const StyledImg = styled.img`
-    max-width: 10rem;
-    width: 20%;
+  max-width: 10rem;
+  width: 20%;
 
-    @media (max-width: 278px) {
-        width: 40%;
-    }
-`
+  @media (max-width: 278px) {
+    width: 40%;
+  }
+`;

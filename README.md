@@ -1,5 +1,7 @@
-## Introdução ao Projeto:
-Este projeto foi criado com o intuito de criar e gerenciar sua lista de contatos, armazenando seus contatos de forma segura e eficiente.
+# Connectfy (front-end)
+Esta API é parte do projeto FullStack Connectfy, onde o usuário pode se registrar, criar e gerenciar sua lista de contatos, armazenando seus contatos de forma segura e eficiente.
+
+Link para o repositório onde está o Front deste projeto: https://github.com/Kenzie-Academy-Brasil-Developers/connectfy-backend
 
 ## Passos para clonar e executar este projeto:
 ### Passo 1: Baixar o Código Fonte
@@ -54,51 +56,27 @@ Agora, a aplicação deve estar rodando localmente em seu computador. Explore-a 
 
 - **@hookform/resolvers (Versão 3.3.2)**
     Descrição: Resolvedores para o React Hook Form, uma biblioteca popular para gerenciar formulários em React.
-<pre>
-  npm install @hookform/resolvers
-</pre>
 
 - **axios (Versão 1.6.2)**
     Descrição: Um cliente HTTP baseado em promessas para o navegador e o Node.js.
-<pre>
- npm install axios
-</pre>
 
 - **react-hook-form (Versão 7.48.2)**
     Descrição: Biblioteca para gerenciar formulários em React.
-<pre>
- npm install react-hook-form
-</pre>
 
 - **react-router-dom (Versão 6.18.0)**
     Descrição: Biblioteca para navegação e roteamento em aplicativos React.
-<pre>
- npm install react-router-dom
-</pre>
 
 - **react-toastify (Versão 9.1.3)**
     Descrição: Biblioteca para exibir notificações de toasts em React.
-<pre>
- npm install react-toastify
-</pre>
 
 - **styled-components (Versão 6.1.1)**
     Descrição: Biblioteca para estilizar componentes React com estilos baseados em componentes.
-<pre>
- npm install styled-components
-</pre>
 
 - **zod (Versão 3.22.4)**
     Descrição: Biblioteca de validação de esquemas para JavaScript/TypeScript.
-<pre>
- npm install zod
-</pre>
 
  - **vite (Versão 4.4.5)**
     Descrição: Estrutura de desenvolvimento rápida para projetos web modernos.
-<pre>
- npm install vite
-</pre>
 
 ### Para instalar todas as dependências listadas acima, basta executar o seguinte comando na raiz do projeto:
 <pre>
@@ -121,7 +99,8 @@ Página de Registro:
 
 Home Page: 
 - Uma vez feito o login o usuário será direciona a página onde estarão listados todos seus contatos em ordem alfabética com base no primeiro nome do contato. Caso o usuário ainda não tenha nenhum contato ele receberá a mensagem: "No contacts yet? No worries, the world awaits". Caso já existam contatos cadastrados nesta página, o usuário poderá procurar por um contato específico utilizando o search bar. No cabeçalho desta página estará em display o nome do usuário com os ícones para editar os seus dados, representado por um lápis, adicionar contatos, representado pelo sinal de adicção (+) e a opção de fazer o logout, o qual o levará a página de login novamente.
-![homeadd pages](https://github.com/Kenzie-Academy-Brasil-Developers/connectfy/assets/103902774/2c4fb38b-1ec5-4b3e-90f9-a1b6243bd1ae)
+![contact-add pages (1)](https://github.com/Kenzie-Academy-Brasil-Developers/connectfy/assets/103902774/c4fa6628-b5c8-4842-a767-e4cef71665e3)
+
 
 Desde a Home Page:
 - Ao clicar no ícone de edição dos seus dados (lápis), o usuário será direcionado a página onde conterá todas suas informaçãoes e também onde poderá alterar seus dados ou deletar sua conta. Nesta página haverá um ícone para retornar a página anterior(home). Caso o usuário deseje atualizar suas informações é só clicar no ícone de edição (lápis), e um modal irá abrir já com seus dados atuais, onde poderão ser alterados e salvos.

@@ -117,17 +117,19 @@ Página inicial:
 
 Página de Registro:  
 - Nesta página o usuário adicionará aos campos seus dados pessoais como nome, email, o cadastro de uma senha, a confirmação desta senha e seu número de telefone. Ao clicar no botão Registrar o usuário receberá uma confirmação de sucesso de seu cadastro ou quais campos ele ainda precisa preencher e será direcionado a página de Login. Caso o usuário já tenha uma conta e está nesta página, ele deve clicar na frase: "Already Register? Login here ;)" para retornar a página de Login.
+![logreg pages](https://github.com/Kenzie-Academy-Brasil-Developers/connectfy/assets/103902774/381e0745-20a4-4432-bf93-e3ccf76e0636)
 
 Home Page: 
 - Uma vez feito o login o usuário será direciona a página onde estarão listados todos seus contatos em ordem alfabética com base no primeiro nome do contato. Caso o usuário ainda não tenha nenhum contato ele receberá a mensagem: "No contacts yet? No worries, the world awaits". Caso já existam contatos cadastrados nesta página, o usuário poderá procurar por um contato específico utilizando o search bar. No cabeçalho desta página estará em display o nome do usuário com os ícones para editar os seus dados, representado por um lápis, adicionar contatos, representado pelo sinal de adicção (+) e a opção de fazer o logout, o qual o levará a página de login novamente.
+![homeadd pages](https://github.com/Kenzie-Academy-Brasil-Developers/connectfy/assets/103902774/2c4fb38b-1ec5-4b3e-90f9-a1b6243bd1ae)
 
+Desde a Home Page:
 - Ao clicar no ícone de edição dos seus dados (lápis), o usuário será direcionado a página onde conterá todas suas informaçãoes e também onde poderá alterar seus dados ou deletar sua conta. Nesta página haverá um ícone para retornar a página anterior(home). Caso o usuário deseje atualizar suas informações é só clicar no ícone de edição (lápis), e um modal irá abrir já com seus dados atuais, onde poderão ser alterados e salvos.
 
-Desde a Home Page:
 - Ao clicar no ícone para adicionar um contato, um modal irá aparecer na tela com os campos: nome completo, email e telefone. Ao adicionar todos os dados e clicar no botão Add Contact, o usuário receberá uma mensagem de sucesso na criação do contato e o modal irá fechar automaticamente.
 
-Desde a Home Page:
 - Ao clicar em um contato já existente, o usuário será redirecionado a página deste contato onde o nome do contato deve aparecer no cabeçalho da página ao lado do botão de retornar a página home (onde estão listados seus contatos). Na página do contato, o usuário poderá editar todos os dados do seu contato, menos a data em que este contato foi criado.
+![contact-add pages](https://github.com/Kenzie-Academy-Brasil-Developers/connectfy/assets/103902774/bc15f04b-5fb3-4fd4-97ad-e6147076bd2a)
 
 Voltando a Home Page, o usuário poderá fazer o logout desde o ícone no canto direito superior da tela.
 

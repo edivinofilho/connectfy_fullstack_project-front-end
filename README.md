@@ -6,10 +6,8 @@ Link para o repositório onde está o Front deste projeto: https://github.com/Ke
 ## Passos para clonar e executar este projeto:
 Pré-requisitos: 
 - Node.js: Certifique-se de tê-lo instalado. Você pode baixá-lo em nodejs.org.
-- yarn ou npm
 
 ### Passo 1: Baixar o Código Fonte
-
 *Clone o Repositório:*
 
 No canto superior direito do repositório, clique no botão "Code".
@@ -52,7 +50,7 @@ Use o comando fornecido no arquivo package.json para iniciar a aplicação em mo
 </pre>
 ou
 <pre>
- yarn run dev
+ yarn run
 </pre>
 
 *Acesse a Aplicação:*
@@ -89,29 +87,8 @@ Agora, a aplicação deve estar rodando localmente em seu computador. Explore-a 
  - **vite (Versão 4.4.5)**
     Descrição: Estrutura de desenvolvimento rápida para projetos web modernos.
 
-### Para instalar todas as dependências listadas acima, basta executar o seguinte comando na raiz do projeto:
-<pre>
- npm install 
-</pre>
-ou 
-<pre>
- yarn install 
-</pre>
-
-Isso instalará tanto as dependências de produção quanto as dependências de desenvolvimento listadas no arquivo package.json.
-
-### Para rodar a aplicação localmente:
-<pre>
- npm run dev 
-</pre>
-ou 
-<pre>
- yarn run  
-</pre>
-
 ## Layout da Aplicação:
 https://www.canva.com/design/DAF0DV2LeFU/oM00lvRFr-OwT2721VZ6KQ/edit?utm_content=DAF0DV2LeFU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
-
 
 ## Instruções de Uso:
 Página inicial: 

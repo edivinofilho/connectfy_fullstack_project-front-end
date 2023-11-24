@@ -4,6 +4,10 @@ Esta API é parte do projeto FullStack Connectfy, onde o usuário pode se regist
 Link para o repositório onde está o Front deste projeto: https://github.com/Kenzie-Academy-Brasil-Developers/connectfy-backend
 
 ## Passos para clonar e executar este projeto:
+Pré-requisitos: 
+- Node.js: Certifique-se de tê-lo instalado. Você pode baixá-lo em nodejs.org.
+- yarn ou npm
+
 ### Passo 1: Baixar o Código Fonte
 
 *Clone o Repositório:*
@@ -36,12 +40,19 @@ Execute o comando npm install para instalar todas as dependências listadas no a
 <pre>
  npm install
 </pre>
-
+ou
+<pre>
+ yarn install
+</pre>
 ### Passo 3: Executar a Aplicação em Modo de Desenvolvimento
 Execute o Comando de Desenvolvimento:
 Use o comando fornecido no arquivo package.json para iniciar a aplicação em modo de desenvolvimento.
 <pre>
  npm run dev
+</pre>
+ou
+<pre>
+ yarn run dev
 </pre>
 
 *Acesse a Aplicação:*
@@ -82,8 +93,21 @@ Agora, a aplicação deve estar rodando localmente em seu computador. Explore-a 
 <pre>
  npm install 
 </pre>
+ou 
+<pre>
+ yarn install 
+</pre>
 
 Isso instalará tanto as dependências de produção quanto as dependências de desenvolvimento listadas no arquivo package.json.
+
+### Para rodar a aplicação localmente:
+<pre>
+ npm run dev 
+</pre>
+ou 
+<pre>
+ yarn run  
+</pre>
 
 ## Layout da Aplicação:
 https://www.canva.com/design/DAF0DV2LeFU/oM00lvRFr-OwT2721VZ6KQ/edit?utm_content=DAF0DV2LeFU&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
